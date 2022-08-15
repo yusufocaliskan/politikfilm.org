@@ -35,7 +35,7 @@ def get_movie_detail(movie_links):
     mo = 0
     for link in movie_links:
         mo +=1
-        #Make one more query to getting details
+        #Make one more query to get details
         try:
             html_doc = requests.get(link)
             detail_page = BeautifulSoup(html_doc.text, 'html.parser')
@@ -62,7 +62,7 @@ def get_movie_detail(movie_links):
                 f.write(requests.get(movie_poster).content)
 
             movie_template = ""           
-            movie_template += '\n<div id="movie">\n' 
+            movie_template += '\n<div class="movie">\n' 
             movie_template += '<h1 class="movie-name">'+str(mo)+' |  '+movie_name+'</h1>\n'
             movie_template += '<p class="movie-director">'+movie_director+' | '+movie_type+' | '+movie_year+'</p>\n'
             movie_template += '<p class="movie-actors">'+movie_actors+'</p>\n'
